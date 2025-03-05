@@ -38,6 +38,18 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+        .center-text {
+            text-align: center;
+            font-weight: bold;
+        }
+        .description {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        .no-bullets {
+            list-style: none;
+            padding: 0;
+        }
         footer {
             background: #0073e6;
             color: white;
@@ -45,47 +57,6 @@
             position: relative;
             bottom: 0;
             width: 100%;
-        }
-        
-        /* Responsive Design */
-        @media screen and (max-width: 768px) {
-            header h1 {
-                font-size: 24px;
-            }
-            nav ul li {
-                display: block;
-                margin: 10px 0;
-            }
-        }
-
-        /* Contact Form Styling */
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-
-        input, textarea {
-            padding: 10px;
-            font-size: 14px;
-            width: 300px;
-            max-width: 100%;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-
-        button {
-            background-color: #0073e6;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #005bb5;
         }
     </style>
 </head>
@@ -103,19 +74,16 @@
         </nav>
     </header>
     
-    <section id="about">
-        <h2>About Us</h2>
-        <img src="https://via.placeholder.com/400x200" alt="MTANDAO POINT" style="width: 100%; max-width: 400px;">
-        <p>MTANDAO POINT is dedicated to providing affordable and reliable community wireless internet access, empowering underserved communities through digital inclusion.</p>
-    </section>
-
     <section id="concept">
         <h2>MTANDAO POINT Concept Note</h2>
-        <p><strong>Executive Summary:</strong> MTANDAO POINT is a community-driven initiative aimed at bridging the digital divide by offering affordable and reliable internet access. By leveraging wireless technology and a shared economic model, we empower individuals and businesses with digital opportunities.</p>
-        <p><strong>Mission:</strong> To make internet access affordable and accessible to underserved communities, fostering economic growth and digital literacy.</p>
-        <p><strong>Vision:</strong> To become the leading wireless community network café in Tanzania, enabling digital inclusion for all.</p>
-        <p><strong>Key Features:</strong></p>
-        <ul>
+        <p class="center-text">Executive Summary</p>
+        <p class="description">MTANDAO POINT is a community-driven initiative aimed at bridging the digital divide by offering affordable and reliable internet access. By leveraging wireless technology and a shared economic model, we empower individuals and businesses with digital opportunities.</p>
+        <p class="center-text">Mission</p>
+        <p class="description">To make internet access affordable and accessible to underserved communities, fostering economic growth and digital literacy.</p>
+        <p class="center-text">Vision</p>
+        <p class="description">To become the leading wireless community network café in Tanzania, enabling digital inclusion for all.</p>
+        <p class="center-text">Key Features:</p>
+        <ul class="no-bullets">
             <li>Low-cost, high-speed internet services</li>
             <li>Community-driven ownership model</li>
             <li>Support for education, businesses, and entrepreneurs</li>
@@ -124,10 +92,10 @@
             <li>Smart partnerships with local businesses and organizations</li>
         </ul>
     </section>
-
+    
     <section id="services">
         <h2>Our Services</h2>
-        <ul>
+        <ul class="no-bullets">
             <li>Affordable Wi-Fi access</li>
             <li>Community Internet Cafés</li>
             <li>Digital Training & Support</li>
@@ -137,18 +105,11 @@
 
     <section id="impact">
         <h2>Our Impact</h2>
-        <img src="https://via.placeholder.com/400x200" alt="Impact" style="width: 100%; max-width: 400px;">
-        <p>MTANDAO POINT has helped bridge the digital divide by providing internet access to thousands of users, fostering entrepreneurship, and supporting digital education programs. Our work has empowered students, job seekers, and small businesses with the tools they need to thrive in a digital economy.</p>
+        <p>MTANDAO POINT is actively working to enhance digital literacy and internet accessibility within the community. Through dedicated efforts, more individuals and businesses are gaining access to the digital world, fostering growth and opportunities.</p>
     </section>
 
     <section id="contact">
         <h2>Contact Us</h2>
-        <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
         <p>Email: mtandaopoint@gmail.com</p>
         <p>Phone: 0752730237</p>
     </section>
