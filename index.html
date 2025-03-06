@@ -4,118 +4,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MTANDAO POINT</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+        body { font-family: Arial, sans-serif; }
+        .hero-section {
+            background: url('IMG-20240529-WA0012.jpg') center/cover no-repeat;
+            color: white;
             text-align: center;
-            background-color: #f4f4f4;
+            padding: 120px 20px;
         }
-        header {
-            background: #0073e6;
-            color: white;
-            padding: 15px 0;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
+        .hero-section h1 {
+            font-size: 3rem;
             font-weight: bold;
         }
-        section {
-            padding: 20px;
-            background: white;
-            margin: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .center-text {
+        .section-heading {
             text-align: center;
-            font-weight: bold;
+            margin-bottom: 30px;
         }
-        .description {
-            margin-top: 10px;
-            font-size: 16px;
-        }
-        .no-bullets {
-            list-style: none;
-            padding: 0;
-        }
-        footer {
-            background: #0073e6;
+        .footer {
+            background-color: #343a40;
             color: white;
-            padding: 10px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .contact-icons i {
+            font-size: 1.5rem;
+            color: #007bff;
+        }
+        .about-section {
+            background-color: #f8f9fa;
+            padding: 50px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .about-section p {
+            font-size: 1.2rem;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #007bff;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to MTANDAO POINT</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#concept">Concept Note</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#impact">Impact</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">MTANDAO POINT</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#impact">Impact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     
-    <section id="concept">
-        <h2>MTANDAO POINT Concept Note</h2>
-        <p class="center-text">Executive Summary</p>
-        <p class="description">MTANDAO POINT is a community-driven initiative aimed at bridging the digital divide by offering affordable and reliable internet access. By leveraging wireless technology and a shared economic model, we empower individuals and businesses with digital opportunities.</p>
-        <p class="center-text">Mission</p>
-        <p class="description">To make internet access affordable and accessible to underserved communities, fostering economic growth and digital literacy.</p>
-        <p class="center-text">Vision</p>
-        <p class="description">To become the leading wireless community network café in Tanzania, enabling digital inclusion for all.</p>
-        <p class="center-text">Key Features:</p>
-        <ul class="no-bullets">
-            <li>Low-cost, high-speed internet services</li>
-            <li>Community-driven ownership model</li>
-            <li>Support for education, businesses, and entrepreneurs</li>
-            <li>Scalable infrastructure for rural and urban areas</li>
-            <li>Digital literacy training programs</li>
-            <li>Smart partnerships with local businesses and organizations</li>
-        </ul>
+    <!-- Hero Section -->
+    <div class="hero-section" id="home">
+        <h1>Bridging the Digital Divide in Rural Tanzania</h1>
+        <p>Affordable and reliable internet for underserved communities</p>
+        <a href="#services" class="btn btn-light btn-lg">Get Connected</a>
+    </div>
+    
+    <!-- About Section -->
+    <section id="about" class="container py-5 about-section">
+        <h2 class="section-heading">About MTANDAO POINT</h2>
+        <p>MTANDAO POINT is a <span class="highlight">community-driven initiative</span> providing accessible and reliable internet to underserved communities. Our goal is to empower individuals, businesses, and institutions through affordable connectivity.</p>
+        <p><span class="highlight">Mission:</span> To bridge the digital divide by ensuring equal access to digital opportunities.</p>
+        <p><span class="highlight">Vision:</span> A digitally inclusive society where everyone benefits from technology.</p>
+        <p><span class="highlight">Who We Are:</span> A team of passionate innovators and community leaders dedicated to advancing digital inclusion.</p>
     </section>
     
-    <section id="services">
-        <h2>Our Services</h2>
-        <ul class="no-bullets">
-            <li>Affordable Wi-Fi access</li>
-            <li>Community Internet Cafés</li>
-            <li>Digital Training & Support</li>
-            <li>Tech Solutions for Small Businesses</li>
-        </ul>
+    <!-- Contact Section -->
+    <section id="contact" class="container py-5">
+        <h2 class="section-heading">Contact Us</h2>
+        <div class="contact-icons">
+            <a href="mailto:mtandaopoint@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="tel:0752730237"><i class="fas fa-phone"></i></a>
+            <a href="https://www.linkedin.com/in/mtandao-point" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
     </section>
-
-    <section id="impact">
-        <h2>Our Impact</h2>
-        <p>MTANDAO POINT is actively working to enhance digital literacy and internet accessibility within the community. Through dedicated efforts, more individuals and businesses are gaining access to the digital world, fostering growth and opportunities.</p>
-    </section>
-
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>Email: mtandaopoint@gmail.com</p>
-        <p>Phone: 0752730237</p>
-    </section>
-
-    <footer>
-        <p>© 2025 MTANDAO POINT. All rights reserved.</p>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 MTANDAO POINT. All rights reserved.</p>
     </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
