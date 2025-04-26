@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mtandao Point Prototype</title>
+  <style>
+    body.dark-mode {
+      background-color: #1a1a1a;
+      color: #f1f1f1;
+    }
+
+    .dark-mode header,
+    .dark-mode nav,
+    .dark-mode footer {
+      background-color: #0d1b2a !important;
+      color: #ffffff !important;
+    }
+
+    .dark-mode .btn-demo {
+      background-color: #0056b3;
+    }
+
+    .dark-mode a {
+      color: #00bfff;
+    }
+    :root {
+      --photo-width: 100%;
+      --photo-height: auto;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f9fa;
+      color: #212529;
+      line-height: 1.6;
+    }
+    header, section, footer {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    header {
+      background: #003366; /* Dark Blue */
+      color: white !important;
+      text-align: center;
+      padding-top: 60px;
+      border-bottom: 4px solid #0066cc;
+    }
+    h1, h2 {
+      margin-top: 0;
+    }
+    .section-title {
+      color: #004aad;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.8em;
+    }
+    .section-title::before {
+      content: attr(data-icon);
+      font-size: 1.5em;
+    }
+    .highlight {
+      color: #007bff;
+      font-weight: bold;
+    }
+    .diagram, .photo {
+      width: 100%;
+      height: auto;
+      max-height: 600px;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: zoom-in;
+    }
+    .btn-demo {
+      background: #007bff;
+      color: white;
+      padding: 14px 28px;
+      text-decoration: none;
+      border-radius: 6px;
+      display: inline-block;
+      margin-top: 15px;
+      font-size: 1.1em;
+    }
+    .btn-demo:hover {
+      background: #0056b3;
+    }
+    footer {
+      background: #002b4d;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.95em;
+    }
+    nav {
+      background: #003366;
+      padding: 16px 0;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    ul li {
+      margin-bottom: 12px;
+      font-size: 1.1em;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .gallery img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+      .photo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+      z-index: 3;
+    }
+      .photo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+      z-index: 2;
+    }
+    table.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 1rem;
+}
+.table th, .table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+.table thead {
+  background-color: #004aad;
+  color: white;
+}
+
+  </style>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+</head>
+<body>
+  <button onclick="document.body.classList.toggle('dark-mode')" style="position: fixed; top: 20px; right: 20px; z-index: 999; background: #004aad; color: white; border: none; padding: 10px 16px; border-radius: 8px; cursor: pointer;">Toggle Dark Mode</button>
+
+  <header>
+    <h1 style="color: white;">MTANDAO POINT</h1>
+    <p style="color: white; font-weight: bold;">
+      Connecting Rural Tanzania Through Affordable Internet, Digital Identity & Financial Access
+    </p>
+    <a href="https://mtandaopoint.github.io/Mtandao.Point.Peach/" class="btn-demo" target="_blank" style="margin-top: 20px; display: inline-block;">View Pitch Deck</a>
+  </header>
+  
+  
+  
+
+<nav>
+  <a href="#network">Network</a>
+  <a href="#identity">Identity</a>
+  <a href="#finance">Finance</a>
+  <a href="#story">Journey</a>
+  <a href="#community">Community</a>
+  <a href="#live">Deployment</a>
+  <a href="#architecture">Architecture</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#scaling">Scaling</a>
+</nav>
+
+<section id="network">
+  <h2 class="section-title" data-icon="📶">Community-Powered Mesh Network</h2>
+  <p><span class="highlight">Solar-powered mesh Wi-Fi</span> with TP-Link routers (EAP660, CPE710) is deployed to provide decentralized and resilient connectivity in rural areas.</p>
+  <img src="community.png" alt="Mesh Network Diagram" class="diagram">
+</section>
+
+<section id="identity">
+  <h2 class="section-title" data-icon="🆔">Blockchain-Based Digital Identity</h2>
+  <p>With <span class="highlight">Hyperledger Fabric</span>, we provide verifiable digital identities accessible through mobile devices, allowing secure access to services.</p>
+  <img src="blockchain.png" alt="Identity Workflow Diagram" class="diagram">
+</section>
+
+<section id="finance">
+  <h2 class="section-title" data-icon="💳">Financial Inclusion</h2>
+  <p>Link <span class="highlight">digital IDs</span> with platforms like M-Pesa, Airtel Money, and NMB to enable account creation, payments, and microloans for rural users.</p>
+  <img src="banking.png" alt="Finance Integration Flow" class="diagram">
+</section>
+
+<section id="live">
+  <h2 class="section-title" data-icon="📍">Live Deployment</h2>
+  <p>Our pilot in <span class="highlight">[Ng'ong'ona]</span> serves over 50 users. See bandwidth usage, uptime, and access control via the Omada Controller.</p>
+  <a href="video.mp4" class="btn-demo">View Demo</a>
+</section>
+
+<section id="architecture">
+  <h2 class="section-title" data-icon="🛠️">Network Architecture</h2>
+  <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: center;">
+    <div style="flex: 1 1 45%;">
+      <img src="Architecturee.png" alt="Network Architecture Diagram" class="photo">
+      <p><em>Omada-managed topology: router, switches, and access points (EAP660, EAP225, CPE710).</em></p>
+    </div>
+  </div>
+</section>
+
+<section id="story">
+    <h2 class="section-title" data-icon="👩🏾">Meet Neema – A User's Journey</h2>
+    <p>Neema, a 23-year-old from rural Tanzania, uses her blockchain-based ID to open a wallet, secure a microloan, and build a soap business—all connected through Mtandao Point’s training and network.</p>
+  </section>
+  
+  <section id="community">
+    <h2 class="section-title" data-icon="🤝">How We Work with Communities</h2>
+    <ul>
+      <li><strong>Start with Community Engagement:</strong> 
+        We collaborate with local leaders, schools, and groups to understand needs, raise awareness, and build trust.
+      </li>
+      <li><strong>Deploy Solar-Powered Mesh Networks:</strong> 
+        We install Wi-Fi stations using <em>mesh topology</em>, which connects multiple access points to create strong, flexible, and community-managed internet coverage.
+      </li>
+      <li><strong>Train Local Youth:</strong> 
+        We hire and train young people from the community to install, maintain, and support the network—building skills and creating local jobs.
+      </li>
+      <li><strong>Offer Digital Identity & Financial Tools:</strong> 
+        Through our platform, people can create secure digital IDs and access mobile banking, government services, and economic opportunities.
+      </li>
+      <li><strong>Support Inclusion & Literacy:</strong> 
+        We run local workshops on digital skills, financial literacy, and internet safety—especially for women, youth, and small businesses.
+      </li>
+      <li><strong>Partner for Impact:</strong> 
+        We work with banks, telecoms, NGOs, and innovators to connect services and scale sustainably.
+      </li>
+    </ul>
+  </section>
+
+<section id="metrics">
+    <h2 class="section-title" data-icon="📊">Key Impact Metrics</h2>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; text-align: center;">
+      <div><strong style="font-size: 2em; color: #004aad;">500,000+</strong><br>Digital IDs Issued</div>
+      <div><strong style="font-size: 2em; color: #004aad;">1M+</strong><br>Financially Included</div>
+      <div><strong style="font-size: 2em; color: #004aad;">10,000+</strong><br>Trained in Digital Literacy</div>
+      <div><strong style="font-size: 2em; color: #004aad;">50%</strong><br>Connectivity Boost</div>
+    </div>
+  </section>
+
+  <section id="partners" class="container section mt-12">
+    <h2 class="section-title">🤝 Strategic Partnerships</h2>
+    <div class="rounded-xl bg-gray-100 p-6 shadow-md">
+      <p class="section-description mb-4">
+        MTANDAO POINT collaborates with key stakeholders to scale sustainable connectivity and services across rural Tanzania:
+      </p>
+      <ul class="list-disc pl-5 space-y-2">
+        <li><strong>Telecom Providers</strong> (Vodacom, TTCL, Airtel, Tigo): Provide affordable bandwidth, last-mile infrastructure, and technical support.</li>
+        <li><strong>Fintech Partners</strong> (M-Pesa, Airtel Money, CRDB, NMB): Enable mobile wallet integration for payments, savings, and microloans linked to digital IDs.</li>
+        <li><strong>Government Agencies</strong> (TCRA, UCSAF, NIDA): Facilitate licensing, compliance, and integration with national identity systems.</li>
+        <li><strong>NGOs & Development Partners</strong> (DOT Tanzania, Shule Direct, Tech for Trade): Lead digital literacy, gender inclusion, and entrepreneurship programs.</li>
+        <li><strong>Technology Providers</strong> (TP-Link, LibreRouter, Raspberry Pi Foundation): Supply solar-compatible devices and help build local capacity for network deployment.</li>
+      </ul>
+    </div>
+  </section>
+  
+
+  <section id="budget" class="container section">
+    <h2 class="section-title">💰 Budget & Financial Plan</h2>
+    <p class="section-description">
+      🎯 <strong>Total Estimated Budget:</strong> $2.1 Million USD<br>
+      Structured across three phases of deployment with long-term sustainability planning.
+    </p>
+  
+    <!-- Capital Expenditure -->
+    <h3>1. Capital Expenditure (CAPEX) – $1,950,000</h3>
+    <p>One-time investment to deploy the infrastructure, identity platform, and energy systems.</p>
+    <table class="table">
+      <thead>
+        <tr><th>Phase</th><th>Coverage</th><th>Cost (USD)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Pilot Rollout</td><td>5 Rural Districts</td><td>$400,000</td></tr>
+        <tr><td>Scale-Up</td><td>Additional 10 Districts</td><td>$800,000</td></tr>
+        <tr><td>Nationwide</td><td>All Remaining Regions</td><td>$550,000</td></tr>
+        <tr><td>Digital Platform</td><td>Blockchain ID & Fintech Tools</td><td>$200,000</td></tr>
+      </tbody>
+    </table>
+  
+    <!-- Operational Expenditure -->
+    <h3>2. Operational Expenditure (OPEX) – $150,000/year</h3>
+    <p>Annual running costs to operate, maintain, and grow the network.</p>
+    <table class="table">
+      <thead>
+        <tr><th>Category</th><th>Cost (USD/year)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Staff Salaries</td><td>$60,000</td></tr>
+        <tr><td>Maintenance & Repairs</td><td>$30,000</td></tr>
+        <tr><td>Training Programs</td><td>$20,000</td></tr>
+        <tr><td>Cloud Services</td><td>$15,000</td></tr>
+        <tr><td>Solar Upkeep</td><td>$10,000</td></tr>
+        <tr><td>Outreach & Awareness</td><td>$15,000</td></tr>
+      </tbody>
+    </table>
+    <p><em>OPEX is expected to increase 5% annually for inflation and salary growth.</em></p>
+  
+    <!-- Revenue Forecast -->
+    <h3>3. Revenue Forecast (TZS 1,000/day subscriptions)</h3>
+    <table class="table">
+      <thead>
+        <tr><th>Year</th><th>Active Users</th><th>Estimated Revenue (USD)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>2026</td><td>5,000</td><td>~$64,000</td></tr>
+        <tr><td>2027</td><td>10,000</td><td>~$128,000</td></tr>
+        <tr><td>2028</td><td>20,000</td><td>~$256,000</td></tr>
+      </tbody>
+    </table>
+    <p>Revenue will be used to cover OPEX, reinvest in the network, and train more local support teams.</p>
+  
+    <!-- Sustainability Outlook -->
+    <h3>✅ Sustainability Outlook</h3>
+    <ul>
+      <li><strong>Breakeven Point:</strong> Projected in Year 4</li>
+      <li><strong>Scalable:</strong> Model allows replication across Tanzania and East Africa</li>
+      <li><strong>Investor-Ready:</strong> Supports ROI and long-term service growth</li>
+      <li><strong>Impact-Driven:</strong> Promotes digital access, financial inclusion, and local ownership</li>
+    </ul>
+  
+    <!-- Pitch Deck Button -->
+    <div style="margin-top: 20px;">
+      <a href="https://mtandaopoint.github.io/Mtandao.Point.Peach/" class="btn-demo" target="_blank">📄 View Full Pitch Deck</a>
+    </div>
+  </section>
+  
+
+  <section id="risk" class="container section">
+    <h2 class="section-title">⚠️ Risks & Mitigation</h2>
+    <div class="rounded-xl bg-gray-100 p-6 shadow-md">
+      <p class="section-description mb-4">
+        We have identified key risks and devised strategies to ensure the success of MTANDAO POINT:
+      </p>
+      <ul class="risks-list list-disc pl-5 space-y-2">
+        <li><strong>Power Outages:</strong> Mitigation: Solar-powered system with battery backups and mesh routing for reliability.</li>
+        <li><strong>ISP Delays:</strong> Mitigation: Established MoUs with multiple ISPs, regulatory incentives, and alternative partnerships to ensure bandwidth supply.</li>
+        <li><strong>Community Trust:</strong> Mitigation: Engage local leaders, peer educators, and a demo-first approach to build confidence in the solution.</li>
+        <li><strong>Funding Constraints:</strong> Mitigation: Diversified funding streams from users, grants, and social investors, along with targeted fundraising campaigns.</li>
+        <li><strong>Privacy & Data Security:</strong> Mitigation: Implement a blockchain-based system for data protection and local data governance to safeguard user privacy.</li>
+      </ul>
+    </div>
+  </section>
+  
+
+<section id="gallery">
+  <h2 class="section-title" data-icon="🖼️">Photo Gallery</h2>
+  <p style="text-align: center; max-width: 800px; margin: auto; margin-bottom: 30px;">
+    A visual journey through Mtandao Point’s deployment: from installation to user access and training sessions.
+  </p>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; padding: 0 20px;">
+    <a href="first.JPG" data-lightbox="gallery" data-title="Solar panel installation site"><img src="first.JPG" alt="Solar panel installation site" class="photo"></a>
+    <a href="second.JPG" data-lightbox="gallery" data-title="Solar panel installation site"><img src="second.JPG" alt="Solar panel installation site" class="photo"></a>
+    <a href="five.JPG" data-lightbox="gallery" data-title="Solar panel installation site"><img src="five.JPG" alt="Solar panel installation site" class="photo"></a>
+    <a href="five.JPG" data-lightbox="gallery" data-title="Deployment area"><img src="five.JPG" alt="Deployment area" class="photo"></a>
+    <a href="six.JPG" data-lightbox="gallery" data-title="Deployment area"><img src="six.JPG" alt="Deployment area" class="photo"></a>
+    <a href="seven.JPG" data-lightbox="gallery" data-title="Deployment area"><img src="seven.JPG" alt="Deployment area" class="photo"></a>
+    <a href="eight.JPG" data-lightbox="gallery" data-title="Deployment area"><img src="eight.JPG" alt="Deployment area" class="photo"></a>
+    <a href="nine.JPG" data-lightbox="gallery" data-title="Deployment area"><img src="nine.JPG" alt="Deployment area" class="photo"></a>
+    <a href="ten.JPG" data-lightbox="gallery" data-title="Deployment area"><img src="ten.JPG" alt="Deployment area" class="photo"></a>
+    <a href="third.JPG" data-lightbox="gallery" data-title="Solar panel installation site"><img src="third.JPG" alt="Solar panel installation site" class="photo"></a>
+    <a href="fourth.JPG" data-lightbox="gallery" data-title="Users accessing the network"><img src="fourth.JPG" alt="Users accessing the network" class="photo"></a>
+    <a href="user (1).jpg" data-lightbox="gallery" data-title="Deployment area"><img src="user (1).jpg" alt="Deployment area" class="photo"></a>
+    <a href="user (5).jpg" data-lightbox="gallery" data-title="Deployment area"><img src="user (5).jpg" alt="Deployment area" class="photo"></a>
+    <a href="user (3).jpg" data-lightbox="gallery" data-title="Deployment area"><img src="user (3).jpg" alt="Deployment area" class="photo"></a>
+    <a href="user (4).jpg" data-lightbox="gallery" data-title="Community engagement during deployment"><img src="user (4).jpg" alt="Community engagement during deployment" class="photo"></a>
+   
+  </div>
+</section>
+
+<section id="scaling">
+  <h2 class="section-title" data-icon="📈">Scaling Plan</h2>
+  <p>We plan phased expansion: pilot in 5 districts, scale to 10, then national rollout. Phase 4 targets regional interoperability across East Africa using blockchain-based federated identity.</p>
+  <img src="scaling.png" alt="Scaling Roadmap" class="diagram">
+</section>
+
+<footer>
+  <p>Contact: <a href="mailto:mtandaopoint@gmail.com" style="color: white;">mtandaopoint@gmail.com</a></p>
+  <p>&copy; 2025 Mtandao Point Project</p>
+</footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+</body>
+</html>
