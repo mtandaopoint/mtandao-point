@@ -2,198 +2,279 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MTANDAO POINT</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mtandao Point Prototype</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      scroll-behavior: smooth;
-      background-color: #f8f9fa;
-      transition: background-color 0.5s, color 0.5s;
+    :root {
+      --photo-width: 100%;
+      --photo-height: auto;
     }
-
-    .hero-section {
-      position: relative;
-      background: url('IMG-20240529-WA0012.jpg') center/cover no-repeat;
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f9fa;
+      color: #212529;
+      line-height: 1.6;
+    }
+    body.dark-mode {
+      background-color: #1a1a1a;
+      color: #f1f1f1;
+    }
+    header, section, footer {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    header {
+      background: #003366;
       color: white;
       text-align: center;
-      padding: 120px 20px;
-    }
-
-    .hero-section::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-    }
-
-    .hero-content {
+      padding-top: 80px;
+      border-bottom: 4px solid #0066cc;
       position: relative;
-      z-index: 1;
     }
-
+    h1, h2 {
+      margin-top: 0;
+    }
+    .section-title {
+      color: #004aad;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.8em;
+      justify-content: center;
+    }
+    .section-title::before {
+      content: attr(data-icon);
+      font-size: 1.5em;
+    }
+    .highlight {
+      color: #007bff;
+      font-weight: bold;
+    }
+    nav {
+      background: #002244;
+      padding: 14px 0;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      font-size: 1.05em;
+    }
+    nav a:hover {
+      text-decoration: underline;
+      color: #00bfff;
+    }
+    .btn-demo {
+      background: #007bff;
+      color: white;
+      padding: 14px 28px;
+      text-decoration: none;
+      border-radius: 6px;
+      display: inline-block;
+      margin-top: 15px;
+      font-size: 1.1em;
+    }
+    .btn-demo:hover {
+      background: #0056b3;
+    }
+    .diagram, .photo {
+      width: 100%;
+      height: auto;
+      max-height: 600px;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: zoom-in;
+    }
+    .diagram:hover, .photo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+      z-index: 2;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .gallery img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    ul li {
+      margin-bottom: 12px;
+      font-size: 1.1em;
+    }
+    table.table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 1rem;
+    }
+    .table th, .table td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+    .table thead {
+      background-color: #004aad;
+      color: white;
+    }
+    button#darkModeToggle {
+      position: fixed;
+      top: 70px;
+      right: 20px;
+      background: #004aad;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    /* New boxes for About, Services, Contact */
     .box-container {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
       gap: 20px;
+      justify-content: center;
     }
-
     .box {
-      background: white;
-      border-radius: 20px;
-      padding: 25px;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      flex: 1 1 300px;
-      transition: transform 0.3s, background-color 0.5s, color 0.5s;
+      background: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      padding: 20px;
+      width: 300px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
     }
-
     .box:hover {
-      transform: scale(1.03);
+      transform: translateY(-5px);
     }
-
-    h2.section-title {
-      margin-bottom: 40px;
+    .box h3 {
+      color: #004aad;
+      margin-bottom: 10px;
+    }
+    .box p a {
       color: #007bff;
+      text-decoration: none;
     }
-
-    .dark-mode {
-      background-color: #121212;
-      color: #e0e0e0;
+    .box p a:hover {
+      text-decoration: underline;
     }
-
-    .dark-mode .box {
-      background-color: #1e1e1e;
-      color: #e0e0e0;
-      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
-    }
-
-    .mode-toggle {
-      cursor: pointer;
-    }
+    footer {
+      background: #002b4d;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.95em;}
   </style>
 </head>
 
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#home">MTANDAO POINT</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-          <li class="nav-item"><a class="nav-link" href="pitch.html">Pitch</a></li>
-          <li class="nav-item"><a class="nav-link" href="prototype.html">Prototype</a></li>
-          <li class="nav-item">
-            <a class="nav-link mode-toggle" onclick="toggleMode()">
-              <i class="fas fa-adjust"></i> Mode
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+<!-- Dark Mode Toggle -->
+<button id="darkModeToggle" onclick="document.body.classList.toggle('dark-mode')">Toggle Dark Mode</button>
 
-  <!-- Hero Section -->
-  <div class="hero-section" id="home">
-    <div class="hero-content">
-      <h1>Bridging the Digital Divide in Rural Tanzania</h1>
-      <p>Affordable and reliable internet for underserved communities</p>
-      <a href="#services" class="btn btn-light btn-lg">Get Connected</a>
-      <a href="#contact" class="btn btn-success btn-lg">Join Us</a>
+<!-- Navigation -->
+<nav>
+  <a href="index.html">Home</a>
+  <a href="pitch.html">Pitch Deck</a>
+  <a href="#prototype.html">Prototype</a>
+  <a href="video.mp4">Live Demo</a>
+</nav>
+
+<!-- Header -->
+<header id="home">
+  <h1>MTANDAO POINT</h1>
+  <p style="font-weight: bold; font-size: 1.2em; margin-top: 10px;">
+    Affordable Internet, Digital Identity, and Financial Access for Rural Tanzania
+  </p>
+  <p style="max-width: 700px; margin: 20px auto 0; font-size: 1em; line-height: 1.5;">
+    Bridging the digital divide with solar-powered Wi-Fi, blockchain identity, and mobile financial tools for underserved communities.
+  </p>
+</header>
+
+<!-- About Section -->
+<section id="about" class="container py-5">
+  <h2 class="text-center section-title" data-icon="🌐">ABOUT MTANDAO POINT</h2>
+  <div class="box-container">
+    <div class="box">
+      <h3>Who We Are</h3>
+      <p>MTANDAO POINT is a community-based network providing affordable internet access to underserved communities. Through a shared ownership model, local residents contribute to the network's sustainability, gaining access to vital online resources. The collected fees are reinvested to support community development, empowering people to thrive and grow through technology.</p>
+    </div>
+    <div class="box">
+      <h3>Our Impact</h3>
+      <p>We are transforming communities by providing digital access to education, business opportunities, and financial services. Our network strengthens local economies, connects individuals to global markets, and fosters innovation in rural areas.</p>
     </div>
   </div>
+</section>
 
-  <!-- About Section -->
-  <section id="about" class="container py-5">
-    <h2 class="text-center section-title">ABOUT MTANDAO POINT</h2>
-    <div class="box-container">
-      <div class="box">
-        <h3>Who We Are</h3>
-        <p>MTANDAO POINT is a community-based network providing affordable internet access to underserved communities. Through a shared ownership model, local residents contribute to the network's sustainability, gaining access to vital online resources. The collected fees are reinvested to support community development, empowering people to thrive and grow through technology.</p>
-      </div>
-      <div class="box">
-        <h3>Our Impact</h3>
-        <p>We are transforming communities by providing digital access to education, business opportunities, and financial services. Our network strengthens local economies, connects individuals to global markets, and fosters innovation in rural areas.</p>
-      </div>
+<!-- Services Section -->
+<section id="services" class="container py-5">
+  <h2 class="text-center section-title" data-icon="🛠️">Our Services</h2>
+  <div class="box-container">
+    <div class="box">
+      <h3>Affordable Internet</h3>
+      <p>Providing cost-effective internet access for rural communities.</p>
     </div>
-  </section>
-
-  <!-- Services Section -->
-  <section id="services" class="container py-5">
-    <h2 class="text-center section-title">Our Services</h2>
-    <div class="box-container">
-      <div class="box">
-        <h3>Affordable Internet</h3>
-        <p>Providing cost-effective internet access for rural communities.</p>
-      </div>
-      <div class="box">
-        <h3>Digital Training</h3>
-        <p>Empowering individuals with digital literacy skills.</p>
-      </div>
-      <div class="box">
-        <h3>Community Wi-Fi</h3>
-        <p>Shared access points for schools, businesses, and households.</p>
-      </div>
+    <div class="box">
+      <h3>Digital Training</h3>
+      <p>Empowering individuals with digital literacy skills.</p>
     </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="container py-5">
-    <h2 class="text-center section-title">Contact Us</h2>
-    <div class="box-container">
-      <div class="box">
-        <h3>Email</h3>
-        <p>📧 <a href="mailto:mtandaopoint@gmail.com">mtandaopoint@gmail.com</a></p>
-      </div>
-      <div class="box">
-        <h3>Phone</h3>
-        <p>📞 <a href="tel:0752730237">0752730237</a></p>
-      </div>
-      <div class="box">
-        <h3>LinkedIn</h3>
-        <p>🔗 <a href="https://www.linkedin.com/in/mtandao-point" target="_blank">MTANDAO POINT</a></p>
-      </div>
-      <div class="box">
-        <h3>WhatsApp</h3>
-        <p>💬 <a href="https://chat.whatsapp.com/LA2Aqw9qR0TDIPN86w5q8S" target="_blank">Join Chat</a></p>
-      </div>
+    <div class="box">
+      <h3>Community Wi-Fi</h3>
+      <p>Shared access points for schools, businesses, and households.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer class="footer bg-dark text-white text-center py-3">
-    <p>&copy; 2025 MTANDAO POINT. All rights reserved.</p>
-  </footer>
+<!-- Contact Section -->
+<section id="contact" class="container py-5">
+  <h2 class="text-center section-title" data-icon="✉️">Contact Us</h2>
+  <div class="box-container">
+    <div class="box">
+      <h3>Email</h3>
+      <p>📧 <a href="mailto:mtandaopoint@gmail.com">mtandaopoint@gmail.com</a></p>
+    </div>
+    <div class="box">
+      <h3>Phone</h3>
+      <p>📞 <a href="tel:0752730237">0752730237</a></p>
+    </div>
+    <div class="box">
+      <h3>LinkedIn</h3>
+      <p>🔗 <a href="https://www.linkedin.com/in/mtandao-point" target="_blank">MTANDAO POINT</a></p>
+    </div>
+    <div class="box">
+      <h3>WhatsApp</h3>
+      <p>💬 <a href="https://chat.whatsapp.com/LA2Aqw9qR0TDIPN86w5q8S" target="_blank">Join Chat</a></p>
+    </div>
+  </div>
+</section>
 
-  <!-- JavaScript for navbar and mode toggle -->
-  <script>
-    $(document).ready(function () {
-      $('nav a').on('click', function () {
-        $('nav a').removeClass('active');
-        $(this).addClass('active');
-      });
-    });
+<!-- Rest of your sections (Prototype, Identity, Finance, etc.) -->
+<!-- You can continue with Network, Identity, Financial Inclusion, Architecture, Story, Community Engagement, etc. -->
 
-    function toggleMode() {
-      document.body.classList.toggle('dark-mode');
-    }
-  </script>
+<footer>
+  &copy; 2025 MTANDAO POINT | Powered by Community Innovation
+</footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 
 </body>
 </html>
