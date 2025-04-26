@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MTANDAO POINT – Empowering Communities</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mtandao Point Prototype</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
   <style>
     :root {
       --primary-color: #104E8B;
@@ -28,18 +28,61 @@
       line-height: 1.6;
     }
 
+    header, section, footer {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
     header {
-      background: var(--primary-color);
-      color: var(--white);
-      padding: 2rem 1rem;
+      background: #003366;
+      color: white;
       text-align: center;
-      box-shadow: var(--box-shadow);
+      padding-top: 80px;
+      border-bottom: 4px solid #0066cc;
+      position: relative;
+    }
+    h1, h2 {
+      margin-top: 0;
+      font-weight: normal; /* Removed bold style */
     }
 
-    header h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
+    .highlight {
+      color: #007bff;
+      font-weight: normal; /* Removed bold style */
+    }
+
+    nav {
+      background: #002244;
+      padding: 14px 0;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: normal; /* Removed bold style */
+      font-size: 1.05em;
+    }
+    nav a:hover {
+      text-decoration: underline;
+      color: #00bfff;
+    }
+    .btn-demo {
+      background: #007bff;
+      color: white;
+      padding: 14px 28px;
+      text-decoration: none;
+      border-radius: 6px;
+      display: inline-block;
+      margin-top: 15px;
+      font-size: 1.1em;
+    }
+    .btn-demo:hover {
+      background: #0056b3;
     }
 
     header p {
@@ -50,7 +93,7 @@
     a {
       color: var(--accent-color);
       text-decoration: none;
-      font-weight: 600;
+      font-weight: normal; /* Removed bold style */
     }
 
     a:hover {
@@ -70,6 +113,7 @@
       color: var(--primary-color);
       font-size: 1.8rem;
       margin-bottom: 1rem;
+      font-weight: normal; /* Removed bold style */
     }
 
     ul {
@@ -84,6 +128,7 @@
       padding: 0.75rem 1rem;
       border-radius: 10px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      font-weight: normal; /* Removed bold style */
     }
 
     .image-placeholder {
@@ -108,12 +153,13 @@
     th, td {
       padding: 0.75rem 1rem;
       border-bottom: 1px solid #ddd;
+      font-weight: normal; /* Removed bold style */
     }
 
     th {
       background: #f0f4f8;
       color: #222;
-      font-weight: 600;
+      font-weight: normal; /* Removed bold style */
     }
 
     tr:last-child td {
@@ -141,27 +187,40 @@
       }
     }
     footer {
-    background: var(--primary-color); /* Set the footer background color to the primary color */
-    text-align: center;
-    font-size: 0.9rem;
-    color: white; /* Text color to white for better contrast */
-    padding: 2rem 1rem;
-  }
+      background: var(--primary-color);
+      text-align: center;
+      font-size: 0.9rem;
+      color: white;
+      padding: 2rem 1rem;
+    }
   </style>
 </head>
+
 <body>
 
-<header>
+<!-- Dark Mode Toggle -->
+<button id="darkModeToggle" onclick="document.body.classList.toggle('dark-mode')" aria-label="Toggle Dark Mode">🌙</button>
+
+<!-- Navigation -->
+<nav>
+  <a href="index.html">Home</a>
+  <a href="pitch.html">Pitch Deck</a>
+  <a href="#prototype.html">Prototype</a>
+  <a href="video.mp4">Live Demo</a>
+</nav>
+
+<!-- Header -->
+<header id="home">
   <h1>MTANDAO POINT</h1>
-  <p>Connecting Rural Tanzania Through Affordable Internet, Digital Identity & Financial Access</p>
-  <p>Team: Mtandao Point | Email: <a href="mailto:mtandaopoint@gmail.com">mtandaopoint@gmail.com</a> | 
-   
+  <p style="font-weight: normal; font-size: 1.2em; margin-top: 10px;">
+    Affordable Internet, Digital Identity, and Financial Access for Rural Tanzania
+  </p>
+  <p style="max-width: 700px; margin: 20px auto 0; font-size: 1em; line-height: 1.5;">
+    Bridging the digital divide with solar-powered Wi-Fi, blockchain identity, and mobile financial tools for underserved communities.
+  </p>
 </header>
 
-<!-- Your existing sections go here, no need to change the HTML tags inside each section -->
-<!-- The new styles already apply automatically to headers, paragraphs, lists, and tables -->
-
-<!-- Example single section for preview -->
+<!-- Problem Section -->
 <section class="slide">
   <h2>The Problem</h2>
   <p>Over 20 million Tanzanians are still offline due to unaffordable internet costs and poor infrastructure, particularly in rural areas. This digital exclusion limits access to essential services such as education, healthcare, finance, and civic participation.</p>
@@ -171,7 +230,6 @@
     <li><strong>Lack of Digital Identity:</strong> More than 15 million Tanzanians lack a formal digital identity, making it difficult to access essential services such as banking and healthcare.</li>
     <li><strong>Financial Exclusion:</strong> Many rural communities have limited access to mobile banking and mobile money services, further deepening economic disparities.</li>
   </ul>
-  
 </section>
 
 <section class="slide">
@@ -356,8 +414,26 @@
 </section>
 
 <footer>
-  &copy; 2025 MTANDAO POINT – Empowering Communities
+  <p>© 2025 MTANDAO POINT. All rights reserved.</p>
 </footer>
+
+<!-- Back To Top Button -->
+<button id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑</button>
+
+<!-- Optional Lightbox Script -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+<script>
+  // Show "Back to Top" Button on Scroll
+  const backToTop = document.getElementById('backToTop');
+  window.onscroll = function () {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      backToTop.style.display = 'block';
+    } else {
+      backToTop.style.display = 'none';
+    }
+  };
+</script>
+<!-- Additional sections remain the same -->
 
 </body>
 </html>
